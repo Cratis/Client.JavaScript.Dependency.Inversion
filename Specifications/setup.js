@@ -50,7 +50,6 @@ function given(moduleName, context, specification) {
 */
 
 function given(context, specification) {
-    debugger;
     return function() {
         context.prototype = this;
         var contextInstance = new context.default();
