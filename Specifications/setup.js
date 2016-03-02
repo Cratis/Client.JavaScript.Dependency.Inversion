@@ -16,8 +16,8 @@ function parseUri(sourceUri){
     return uri;
 }	
     
-
-function given(moduleName, context) {
+/*
+function given(moduleName, context, specification) {
     var base = "base/";
     var position = moduleName.indexOf(base);
     position += base.length;
@@ -27,8 +27,33 @@ function given(moduleName, context) {
     context = context.split(" ").join("_");
     var fullContext = root+"given/"+context;
     
+    var context = null;
+    
     System.import(fullContext).then(module => {
-        var context = new module.default();
+        var context = module.default;
         
+        console.log("Context loaded");
     });
+    
+    return function() {
+        var suite = this;
+        
+        console.log("Calling spec");
+        
+        var proto = context;
+        proto.prototype = suite;
+        var instance = new proto();
+        debugger;
+        specification.call(instance);    
+    };
+}
+*/
+
+function given(context, specification) {
+    debugger;
+    return function() {
+        context.prototype = this;
+        var contextInstance = new context.default();
+        specification.call(contextInstance);
+    }
 }
