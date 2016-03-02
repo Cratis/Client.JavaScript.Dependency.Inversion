@@ -3,10 +3,7 @@ import * as Context from "./given/a_context";
 
 describe("when doing stuff", () => {
     var context = new Context.default();
-    var container = new Container();
-    
-    
-    debugger;
+    var container = new Container();   
 
     it("should do stuff", () => {
         expect(true).toBe(true);

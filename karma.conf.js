@@ -4,7 +4,7 @@ module.exports = function (config) {
         basePath: "",
         autoWatch: true,
         singleRun: false,
-        frameworks: ["jspm", "jasmine"],
+        frameworks: ["jspm", "jasmine", "chai", "chai-as-promised"],
         jspm: {
             config: "config.js",
             packages: "jspm_packages/",
