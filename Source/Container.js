@@ -1,9 +1,11 @@
+import {BindingSyntax} from "./BindingSyntax";
+
 export class Container
 {
-    constructor() {
+    constructor(modules) {
     }
     
-    sayHello() {
-        console.log("Hello world now");
+    bind(service) {
+        
     }
 }

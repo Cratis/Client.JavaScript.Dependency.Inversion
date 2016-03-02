@@ -1,13 +1,14 @@
-import {Container} from "../../Source/execution/Container";
+import {Container} from "../../Source/Container";
+import * as Context from "./given/a_context";
 
 describe("when doing stuff", () => {
-   var container = new Container();
-   
-   container.sayHello();
-   
-   console.log("FGromfasd");
-      
-   it("should do stuff", () => {
-       expect(true).toBe(true);
-   });
+    var context = new Context.default();
+    var container = new Container();
+    
+    
+    debugger;
+
+    it("should do stuff", () => {
+        expect(true).toBe(true);
+    });
 });
