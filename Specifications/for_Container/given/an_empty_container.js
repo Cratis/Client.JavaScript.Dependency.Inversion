@@ -1,5 +1,7 @@
+import {Container} from "../../../Source/Container";
+
 export default class {
     constructor() {
-        this.stuff = "Awesome";
+        this.container = new Container();
     }
 }

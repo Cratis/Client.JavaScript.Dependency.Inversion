@@ -6,6 +6,7 @@ export class Container
     }
     
     bind(service) {
-        
+        var bindingSyntax = new BindingSyntax(service);
+        return bindingSyntax;
     }
 }
