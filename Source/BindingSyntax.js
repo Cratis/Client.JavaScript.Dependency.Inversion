@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Einar Ingebrigtsen. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 import {ScopeSyntax} from "./ScopeSyntax";
 import {ConstantActivationStrategy} from "./Strategies/ConstantActivationStrategy";
 import {TypeActivationStrategy} from "./Strategies/TypeActivationStrategy";
