@@ -5,7 +5,7 @@ import {ScopeSyntax} from "../../Source/ScopeSyntax";
 import * as Context from "./given/a_bound_service";
 
 describe("when binding to type", () => {
-    const type = "Some Constant";
+    const type = function() {};
     let context = null;
     let scopeSyntax = null;
     

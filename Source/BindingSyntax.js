@@ -42,6 +42,7 @@ export class BindingSyntax {
     }
 
     to(type) {
+        if( typeof type !== "function") throw "You can't bind to something that is not a function";
         var strategy = new TypeActivationStrategy()
         let scopeSyntax = handleStrategyAndScope.call(this, strategy);
         return scopeSyntax;
@@ -53,7 +54,3 @@ export class BindingSyntax {
         return scopeSyntax;
     }
 }
-
-
-    
-
