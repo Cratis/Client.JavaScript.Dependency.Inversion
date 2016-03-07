@@ -1,5 +1,6 @@
 import "../setup";
 import {Container} from "../../Source/Container";
+import {Binding} from "../../Source/Binding";
 import * as Context from "./given/an_empty_container";
 
 describe("when doing stuff", () => {
@@ -18,14 +19,3 @@ describe("when doing stuff", () => {
 
     it("should have a result", () => result.should.be.defined);
 });
- 
-//given(__moduleName, "an empty container", () => {
-    
-    //var context = new Context.default();
-    /*
-    var container = new Container();   
-
-    it("should do stuff", () => {
-        expect(true).toBe(true);
-    });*/
-//}));
