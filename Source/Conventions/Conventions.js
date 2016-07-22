@@ -4,12 +4,19 @@
  *--------------------------------------------------------------------------------------------*/
 
 /**
- * Defines the basis for a {Convention}
+ * Represents the manager that knows about conventions
  */
-export class Convention
+export class Conventions
 {
     /**
-     * Determines wether or not the convention can resolve the service
+     * Initializes a new instance of {Conventions}
+     */
+    constructor(allConventions) {
+        this.conventions = allConventions;
+    }
+
+    /**
+     * Determines wether or not any conventions can resolve a service
      * @param {container} Container the convention will resolve relative to
      * @param {service} Service that needs to be resolved
      */

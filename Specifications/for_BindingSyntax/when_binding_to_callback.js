@@ -1,4 +1,3 @@
-
 import {BindingSyntax} from "../../Source/BindingSyntax";
 import {CallbackActivationStrategy} from "../../Source/Strategies/CallbackActivationStrategy";
 import {ScopeSyntax} from "../../Source/ScopeSyntax";
