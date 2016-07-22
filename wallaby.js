@@ -13,7 +13,7 @@ module.exports = function (wallaby) {
             { pattern: "Source/**/*.js", load: false }
         ],
         tests: [
-            { pattern: "Specifications/**/given/*.js", load: false, ignore: true },
+            { pattern: "!Specifications/**/given/*.js", load: false },
             { pattern: "Specifications/**/*.js", load: false }
         ],
 
