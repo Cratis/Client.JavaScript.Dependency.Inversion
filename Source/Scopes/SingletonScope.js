@@ -4,6 +4,9 @@
  *--------------------------------------------------------------------------------------------*/
 import {Scope} from "./Scope";
 
+/**
+ * Represents a {Scope} that makes a binding of a service only have a single instance in memory 
+ */
 export class SingletonScope extends Scope
 {
     
