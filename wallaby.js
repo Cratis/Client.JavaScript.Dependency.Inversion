@@ -1,11 +1,19 @@
+// http://ilikekillnerds.com/2016/04/webpack-typescript-aurelia-wallaby-js/
+// https://github.com/wallabyjs/wallaby-jspm-sample/blob/master/wallaby.js
+
 module.exports = function (wallaby) {
     return {
         files: [
             { pattern: "jspm_packages/system.js", instrument: false },
+            { pattern: "node_modules/chai/chai.js", instrument: false },
+            { pattern: "node_modules/chai-as-promised/chai-as-promised.js", instrument: false },
             { pattern: "config.js", instrument: false },
+
+            { pattern: "Specifications/**/given/*.js", load: false },
             { pattern: "Source/**/*.js", load: false }
         ],
         tests: [
+            { pattern: "Specifications/**/given/*.js", load: false, ignore: true },
             { pattern: "Specifications/**/*.js", load: false }
         ],
 
@@ -15,6 +23,10 @@ module.exports = function (wallaby) {
             })
         },
 
+        env: {
+            //type: "node"
+            kind: "electron"
+        },
 
         middleware: (app, express) => {
             app.use("/jspm_packages", express.static(require("path").join(__dirname, "jspm_packages")));
@@ -22,6 +34,10 @@ module.exports = function (wallaby) {
 
         setup: (wallaby) => {
             wallaby.delayStart();
+
+            window.expect = chai.expect;
+            var should = chai.should();
+            
 
             System.config({
                 transpiler: "none"
@@ -40,6 +56,8 @@ module.exports = function (wallaby) {
                 }, 0);
             });
         },
+
+        testFramework: "jasmine",
 
         debug: true
     };
