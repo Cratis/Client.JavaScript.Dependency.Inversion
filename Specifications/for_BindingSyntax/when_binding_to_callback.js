@@ -11,7 +11,7 @@ describe("when binding to callback", () => {
     beforeEach(() => {
         context = new Context.default();
         
-        (beforeEach => {
+        (becauseOf => {
             scopeSyntax = context.bindingSyntax.toCallback(() => {});
         })();
     });

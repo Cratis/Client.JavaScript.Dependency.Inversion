@@ -12,7 +12,7 @@ describe("when binding to type", () => {
     beforeEach(() => {
         context = new Context.default();
         
-        (beforeEach => {
+        (becauseOf => {
             scopeSyntax = context.bindingSyntax.to(type);
         })();
     });

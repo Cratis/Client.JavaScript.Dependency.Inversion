@@ -9,7 +9,7 @@ describe("when binding to type not being a function", () => {
     beforeEach(() => {
         context = new Context.default();
         
-        (beforeEach => {
+        (becauseOf => {
             try { context.bindingSyntax.to(type) } catch(e) { exception = e }
         })();
     });

@@ -11,7 +11,7 @@ describe("when binding to constant", () => {
     beforeEach(() => {
         context = new Context.default();
         
-        (beforeEach => {
+        (becauseOf => {
             scopeSyntax = context.bindingSyntax.toConstant(constant);
         })();
     });
