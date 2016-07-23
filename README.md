@@ -1,4 +1,4 @@
-# Client.JavaScript.Dependency.Inversion
+# Client.JavaScript.DependencyInversion
 
 The goal of this project is to provide a way to manage your dependencies in your projects.
 Typically exposing an IoC Container (Inversion of Control) and letting you have a place
