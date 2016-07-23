@@ -31,6 +31,7 @@ export class Conventions
      * @param {service} Service that needs to be resolved
      */
     resolve(container, service) {
-
+        let convention = this.conventions.find(c => c.canResolve(container,service));
+        if( convention ) convention.resolve(container,service);
     }
 }
