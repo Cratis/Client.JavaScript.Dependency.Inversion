@@ -1,6 +1,5 @@
 // http://ilikekillnerds.com/2016/04/webpack-typescript-aurelia-wallaby-js/
 // https://github.com/wallabyjs/wallaby-jspm-sample/blob/master/wallaby.js
-
 module.exports = function (wallaby) {
     return {
         files: [
@@ -37,23 +36,26 @@ module.exports = function (wallaby) {
 
             window.expect = chai.expect;
             var should = chai.should();
-            
 
             System.config({
                 transpiler: "none"
             });
 
-            var promises = [];
-            for (var i = 0, len = wallaby.tests.length; i < len; i++) {
-                promises.push(System['import'](wallaby.tests[i]));
-            }
+            System.import("sinon").then(function (s) {
+                window.sinon = s;
 
-            Promise.all(promises).then(function () {
-                wallaby.start();
-            }).catch(function (e) {
-                setTimeout(function () {
-                    throw e;
-                }, 0);
+                var promises = [];
+                for (var i = 0, len = wallaby.tests.length; i < len; i++) {
+                    promises.push(System['import'](wallaby.tests[i]));
+                }
+
+                Promise.all(promises).then(function () {
+                    wallaby.start();
+                }).catch(function (e) {
+                    setTimeout(function () {
+                        throw e;
+                    }, 0);
+                });
             });
         },
 
