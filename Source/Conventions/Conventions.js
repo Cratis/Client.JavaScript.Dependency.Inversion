@@ -21,6 +21,7 @@ export class Conventions
      * @param {service} Service that needs to be resolved
      */
     canResolve(container, service) {
+        if( this.conventions.some(convention => convention.canResolve(container,service)) ) return true;
         return false;
     }
 

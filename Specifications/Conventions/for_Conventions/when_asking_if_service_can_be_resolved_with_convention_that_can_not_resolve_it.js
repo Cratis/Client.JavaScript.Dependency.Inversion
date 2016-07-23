@@ -1,7 +1,7 @@
 import {Conventions} from "../../../Source/Conventions/Conventions";
-import * as Context from "./given/no_conventions";
+import * as Context from "./given/a_convention_not_able_to_resolve_anything";
 
-describe("when asking if service can be resolved without any conventions", () => {
+describe("when asking if service can be resolved with convention that can not resolve it", () => {
     let context = null;
     let result = null;
 
