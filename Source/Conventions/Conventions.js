@@ -3,6 +3,8 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
+import {NoConventionCanResolve} from "./NoConventionCanResolve";
+
 /**
  * Represents the manager that knows about conventions
  */
@@ -32,6 +34,6 @@ export class Conventions
      */
     resolve(container, service) {
         let convention = this.conventions.find(c => c.canResolve(container,service));
-        if( convention ) convention.resolve(container,service);
+        if( convention ) convention.resolve(container,service);       
     }
 }

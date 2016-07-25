@@ -54,7 +54,8 @@ SystemJS.config({
         "process": "github:jspm/nodelibs-process@0.2.0-alpha",
         "sinon": "npm:sinon@1.17.4",
         "util": "github:jspm/nodelibs-util@0.2.0-alpha",
-        "vm": "github:jspm/nodelibs-vm@0.2.0-alpha"
+        "vm": "github:jspm/nodelibs-vm@0.2.0-alpha",
+        "cratis.client.javascript.core": "npm:cratis.client.javascript.core@1.0.0"
     },
     packages: {
         "cratis.client.javascript.dependencyinversion": {
@@ -70,6 +71,9 @@ SystemJS.config({
         },
         "npm:inherits@2.0.1": {
             "map": {}
+        },
+        "npm:cratis.client.javascript.core@1.0.0": {
+            map: {}
         },
         "npm:sinon@1.17.4": {
             "map": {
