@@ -3,10 +3,11 @@
 module.exports = function (wallaby) {
     return {
         files: [
-            { pattern: "jspm_packages/system.js", instrument: false },
             { pattern: "node_modules/chai/chai.js", instrument: false },
             { pattern: "node_modules/chai-as-promised/chai-as-promised.js", instrument: false },
-            { pattern: "config.js", instrument: false },
+            { pattern: "jspm_packages/system.js", instrument: false },
+            { pattern: "jspm.config.js", instrument: false },
+            { pattern: "nullTranspiler.js", instrument: false, load: false },
 
             { pattern: "Specifications/**/given/*.js", load: false },
             { pattern: "Source/**/*.js", load: false }
@@ -23,7 +24,7 @@ module.exports = function (wallaby) {
         },
 
         env: {
-            //type: "node"
+            //type: "node",
             kind: "electron"
         },
 
@@ -32,13 +33,15 @@ module.exports = function (wallaby) {
         },
 
         setup: (wallaby) => {
+
+            console.log("exports : " + typeof exports);
             wallaby.delayStart();
 
             window.expect = chai.expect;
             var should = chai.should();
 
             System.config({
-                transpiler: "none"
+                transpiler: "none" //./nullTranspiler"
             });
 
             System.import("sinon").then(function (s) {
