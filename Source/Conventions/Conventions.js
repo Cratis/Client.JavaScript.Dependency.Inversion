@@ -2,7 +2,6 @@
  *  Copyright (c) Einar Ingebrigtsen. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-
 import {NoConventionCanResolve} from "./NoConventionCanResolve";
 
 /**
@@ -34,6 +33,7 @@ export class Conventions
      */
     resolve(container, service) {
         let convention = this.conventions.find(c => c.canResolve(container,service));
-        if( convention ) convention.resolve(container,service);       
+        if( convention ) convention.resolve(container,service);
+        else NoConventionCanResolve.throw();       
     }
 }
