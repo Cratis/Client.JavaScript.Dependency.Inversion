@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import {Exception} from "cratis.client.javascript.core";
+import {Exception} from "cratis.client.javascript.core/Exception";
 
 /**
  * The exception that gets thrown if there is no {Convention} that can resolve a service binding
