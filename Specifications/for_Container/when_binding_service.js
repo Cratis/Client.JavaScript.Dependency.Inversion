@@ -1,6 +1,7 @@
 import "../setup";
 import {Container} from "../../Source/Container";
 import {Binding} from "../../Source/Binding";
+import {BindingSyntax} from "../../Source/BindingSyntax";
 import * as Context from "./given/an_empty_container";
 
 describe("when doing stuff", () => {
@@ -17,5 +18,5 @@ describe("when doing stuff", () => {
         })();
     });
 
-    it("should have a result", () => result.should.be.defined);
+    it("should be returning a binding syntax", () => result.should.be.instanceof(BindingSyntax));
 });
