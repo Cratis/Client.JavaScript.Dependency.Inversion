@@ -58,5 +58,6 @@ export class ScopeSyntax
 
         var binding = new Binding();
         this.bindingSyntax.container.add(binding);
+        
     }
 }

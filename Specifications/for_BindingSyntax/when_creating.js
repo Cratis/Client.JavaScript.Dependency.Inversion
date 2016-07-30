@@ -6,9 +6,11 @@ import {BindingSyntax} from "../../Source/BindingSyntax";
 
 describe("when creating", () => {
     const service = "Some service";
+    const container = {};
     let bindingSyntax = null;
     
-    beforeEach(() => bindingSyntax = new BindingSyntax(service));
+    beforeEach(() => bindingSyntax = new BindingSyntax(container, service));
 
+    it("should have the container on it", () => bindingSyntax.container.should.equal(container));
     it("should have the service on it", () => bindingSyntax.service.should.equal(service));    
 });

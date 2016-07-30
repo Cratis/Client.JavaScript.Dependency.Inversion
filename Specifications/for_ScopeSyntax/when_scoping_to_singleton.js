@@ -17,4 +17,5 @@ describe("when scoping to singleton", () => {
     });
 
     it("should set it to be a singleton scope", () => context.scopeSyntax.scope.should.be.instanceof(SingletonScope));
+    it("should add a binding to the container", () => context.bindingSyntax.container.add.called.should.be.true);
 });
