@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Einar Ingebrigtsen. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 import {BindingSyntax} from "../../Source/BindingSyntax";
 import {CallbackActivationStrategy} from "../../Source/Strategies/CallbackActivationStrategy";
 import {ScopeSyntax} from "../../Source/ScopeSyntax";
