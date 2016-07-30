@@ -2,18 +2,11 @@
  *  Copyright (c) Einar Ingebrigtsen. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
+import {ScopeSyntax} from "../../../Source/ScopeSyntax";
 
-/**
- * Represents a module that can define bindings
- */
-export class Module
+export default class 
 {
-    /**
-     * Initialize the module
-     * 
-     * @param {Container} The container in which the module belongs to
-     */
-    initialize(container) {
-        
+    constructor() {
+        this.scopeSyntax = new ScopeSyntax(); 
     }
 }

@@ -3,14 +3,25 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import {Scope} from "./Scopes/Scope";
+import {SingletonScope} from "./Scopes/SingletonScope";
+
+const _scope = new WeakMap();
 
 export class ScopeSyntax
 {
     /**
+     * Gets the scope
+     */
+    get scope() {
+        return _scope.get(this);
+    }
+
+    /**
      * Define the scope to be a singleton
      */
-    inSingletonScope() {
-        
+    asSingleton() {
+        let scope = new SingletonScope();
+        this.as(scope); 
     }
     
     /**
@@ -18,7 +29,7 @@ export class ScopeSyntax
      * 
      * @param {Scope} scope The scope representing the lifecycle
      */
-    inScope(scope) {
-        
+    as(scope) {
+        _scope.set(this, scope);
     }
 }
