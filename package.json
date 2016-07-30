@@ -1,8 +1,8 @@
 {
-  "name": "cratis.client.javascript.dependencyinversion",
+  "name": "cratis-client-javascript-dependencyinversion",
   "description": "Client Dependency Inversion - IoC container for JavaScript",
   "version": "1.0.0",
-  "main": "cratis.client.javascript.dependencyinversion.js",
+  "main": "Distribution/index.js",
   "scripts": {
     "test": "node_modules/karma/bin/karma start"
   },
@@ -21,23 +21,24 @@
   },
   "jspm": {
     "dependencies": {
-      "Distribution": "local:Distribution@master",
-      "sinon": "npm:sinon@^1.17.4"
+        "cratis-javascript-core": "github:Cratis/JavaScript.Core@master"
     },
     "devDependencies": {
       "babel-runtime": "npm:babel-runtime@^5.8.24",
       "core-js": "npm:core-js@^1.2.0",
       "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
       "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
-      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.12"
+      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.12",
+      "process": "github:jspm/nodelibs-process@^0.2.0-alpha"
     },
-    "peerDependencies": {
-      "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
-      "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
-      "child_process": "github:jspm/nodelibs-child_process@^0.2.0-alpha",
-      "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
-      "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
-      "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha"
+    "overrides": {
+      "npm:babel-runtime@5.8.38": {
+        "main": false,
+        "dependencies": {},
+        "optionalDependencies": {
+          "core-js": "^1.2.0"
+        }
+      }
     }
   }
 }
