@@ -8,6 +8,7 @@ import {TypeActivationStrategy} from "./Strategies/TypeActivationStrategy";
 import {ComplexActivationStrategy} from "./Strategies/ComplexActivationStrategy";
 import {CallbackActivationStrategy} from "./Strategies/CallbackActivationStrategy";
 
+const _container = new WeakMap();
 const _service = new WeakMap();
 const _strategy = new WeakMap();
 const _scopeSyntax = new WeakMap();
@@ -31,8 +32,17 @@ export class BindingSyntax {
      * @constructor
      * @param {Object} service Representation of the service - often the name of service in string form 
      */
-    constructor(service) {
+    constructor(container, service) {
+        _container.set(this, container);
         _service.set(this, service);
+    }
+
+    /**
+     * Get the container in which the {BindingSyntax} is for
+     * @property {Container}
+     */
+    get container() {
+        return _container.get(this);
     }
 
     /**

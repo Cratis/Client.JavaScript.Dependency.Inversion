@@ -25,7 +25,7 @@ export class Container
      * @return {BindingSyntax}
      */
     bind(service) {
-        var bindingSyntax = new BindingSyntax(service);
+        var bindingSyntax = new BindingSyntax(this, service);
         return bindingSyntax;
     }
 }

@@ -12,9 +12,9 @@ describe("when scoping to singleton", () => {
         context = new Context.default();
 
         (becauseOf => {
-            context.scope.asSingleton();
+            context.scopeSyntax.asSingleton();
         })();
     });
 
-    it("should set it to be a singleton scope", () => context.scope.scope.should.be.instanceof(SingletonScope));
+    it("should set it to be a singleton scope", () => context.scopeSyntax.scope.should.be.instanceof(SingletonScope));
 });

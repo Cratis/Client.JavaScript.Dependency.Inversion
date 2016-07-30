@@ -7,6 +7,13 @@ import {ScopeSyntax} from "../../../Source/ScopeSyntax";
 export default class 
 {
     constructor() {
-        this.scopeSyntax = new ScopeSyntax(); 
+
+        this.bindingSyntax = {
+            container: {
+                add: sinon.stub()
+            },
+            strategy: { "some": "strategy" }
+        };
+        this.scopeSyntax = new ScopeSyntax(this.bindingSyntax); 
     }
 }

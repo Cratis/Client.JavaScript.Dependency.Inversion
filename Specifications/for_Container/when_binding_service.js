@@ -23,5 +23,6 @@ describe("when binding service", () => {
     });
 
     it("should be returning a binding syntax", () => result.should.be.instanceof(BindingSyntax));
+    it("should have passed the container to the binding syntax", () => result.container.should.equal(context.container));
     it("should have passed the service to the binding syntax", () => result.service.should.equal(service));
 });
