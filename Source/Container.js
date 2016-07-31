@@ -11,6 +11,15 @@ import {Dependencies} from "./Dependencies";
 const _bindings = new WeakMap();
 const _dependencies = new Dependencies();
 
+
+function throwIfBindingForServiceAlreadyExists(container, binding) {
+    if( container.bindings.hasOwnProperty(binding.service)) BindingForServiceAlreadyExists.throw(binding.service);
+}
+
+function throwIfMissingBindingForService(container,service) {
+    if( !container.bindings.hasOwnProperty(service) ) MissingBindingForService.throw(service);
+}
+
 /**
  * Represents a root container for holding bindings 
  */
@@ -39,7 +48,7 @@ export class Container
      * @throws {MissingBindingForService} if there is no {Binding}
      */
     getBindingFor(service) {
-        if( !this.bindings.hasOwnProperty(service) ) MissingBindingForService.throw(service);
+        throwIfMissingBindingForService(this, service);
         return this.bindings[service];
     } 
 
@@ -48,7 +57,7 @@ export class Container
      * @param {Binding} to add.
      */
     add(binding) {
-        if( this.bindings.hasOwnProperty(binding.service)) BindingForServiceAlreadyExists.throw(binding.service);
+        throwIfBindingForServiceAlreadyExists(this, binding);
         this.bindings[binding.service] = binding;
     }
     
@@ -68,7 +77,8 @@ export class Container
      * @return {Object} Resolved instance of service
      */
     get(service) {
-        if( !this.bindings.hasOwnProperty(service) ) MissingBindingForService.throw(service);
+        throwIfMissingBindingForService(this, service);
+        
         var promise = new Promise((resolve, reject) => {
 
         });
