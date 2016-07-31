@@ -9,6 +9,7 @@ import {ComplexActivationStrategy} from "./Strategies/ComplexActivationStrategy"
 import {CallbackActivationStrategy} from "./Strategies/CallbackActivationStrategy";
 import {TransientScope} from "./Scopes/TransientScope";
 import {Binding} from "./Binding";
+import {BindingTargetIsNotBasedOnFunction} from "./BindingTargetIsNotBasedOnFunction";
 
 const _container = new WeakMap();
 const _service = new WeakMap();
@@ -26,6 +27,10 @@ const handleStrategyAndScope = function (strategy) {
     var scopeSyntax = new ScopeSyntax();
     _scopeSyntax.set(this, scopeSyntax);
     return scopeSyntax;
+}
+
+function throwIfNotFunction(type) {
+    if( typeof type !== "function") BindingTargetIsNotBasedOnFunction.throw(type); 
 }
 
 /**
@@ -91,7 +96,7 @@ export class BindingSyntax {
      * @param {function} type A type the service is bound to
      */
     to(type) {
-        if( typeof type !== "function") throw "You can't bind to something that is not a function";
+        throwIfNotFunction(type);
         var strategy = new TypeActivationStrategy()
         let scopeSyntax = handleStrategyAndScope.call(this, strategy);
         return scopeSyntax;

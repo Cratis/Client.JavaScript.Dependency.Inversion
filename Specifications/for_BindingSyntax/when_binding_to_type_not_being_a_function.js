@@ -3,6 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import {BindingSyntax} from "../../Source/BindingSyntax";
+import {BindingTargetIsNotBasedOnFunction} from "../../Source/BindingTargetIsNotBasedOnFunction";
 import * as Context from "./given/a_bound_service";
 
 describe("when binding to type not being a function", () => {
@@ -18,5 +19,5 @@ describe("when binding to type not being a function", () => {
         })();
     });
 
-    it("should throw an exception", () => exception.should.be.defined);
+    it("should throw a binding target is not based on function exception", () => exception.should.be.instanceof(BindingTargetIsNotBasedOnFunction));
 });

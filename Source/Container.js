@@ -5,9 +5,11 @@
 import {BindingSyntax} from "./BindingSyntax";
 import {Module} from "./Module";
 import {BindingForServiceAlreadyExists} from "./BindingForServiceAlreadyExists";
-import {MissingBindingForService} from "./MissingBindingForService"; 
+import {MissingBindingForService} from "./MissingBindingForService";
+import {Dependencies} from "./Dependencies"; 
 
 const _bindings = new WeakMap();
+const _dependencies = new Dependencies();
 
 /**
  * Represents a root container for holding bindings 
@@ -67,6 +69,9 @@ export class Container
      */
     get(service) {
         if( !this.bindings.hasOwnProperty(service) ) MissingBindingForService.throw(service);
-        return "";
+        var promise = new Promise((resolve, reject) => {
+
+        });
+        return promise;
     }
 }
