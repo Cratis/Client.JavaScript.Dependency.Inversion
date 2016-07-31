@@ -80,7 +80,6 @@ export class BindingSyntax {
         return _scopeSyntax.get(this);
     }
 
-
     /**
      * Bind to a constant
      * @param {Object} constant A constant the service is bound to
@@ -107,6 +106,7 @@ export class BindingSyntax {
      * @param {function} fn Function that will be called
      */
     toCallback(fn) {
+        throwIfNotFunction(fn);
         var strategy = new CallbackActivationStrategy()
         let scopeSyntax = handleStrategyAndScope.call(this, strategy);
         return scopeSyntax;

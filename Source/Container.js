@@ -6,11 +6,8 @@ import {BindingSyntax} from "./BindingSyntax";
 import {Module} from "./Module";
 import {BindingForServiceAlreadyExists} from "./BindingForServiceAlreadyExists";
 import {MissingBindingForService} from "./MissingBindingForService";
-import {Dependencies} from "./Dependencies"; 
 
 const _bindings = new WeakMap();
-const _dependencies = new Dependencies();
-
 
 function throwIfBindingForServiceAlreadyExists(container, binding) {
     if( container.bindings.hasOwnProperty(binding.service)) BindingForServiceAlreadyExists.throw(binding.service);
@@ -79,7 +76,21 @@ export class Container
     get(service) {
         throwIfMissingBindingForService(this, service);
         
+        var binding = this.getBindingFor(service);
+
+        // Create a new activationContext
+
         var promise = new Promise((resolve, reject) => {
+
+            // Check if we have it in scope
+            // If we have it in the scope, resolve with instance in scope
+
+            // If it is not in scope - call activation strategy
+
+            // Register it for the scope
+
+            // resolve the promise with the instance
+
 
         });
         return promise;
