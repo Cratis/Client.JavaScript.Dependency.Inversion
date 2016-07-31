@@ -10,8 +10,9 @@ export default class
 
         this.bindingSyntax = {
             container: {
-                add: sinon.stub()
+                add: sinon.stub(() => console.log("Hello"))
             },
+            service: { "some": "service"},
             strategy: { "some": "strategy" }
         };
         this.scopeSyntax = new ScopeSyntax(this.bindingSyntax); 

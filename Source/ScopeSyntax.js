@@ -56,8 +56,12 @@ export class ScopeSyntax
     as(scope) {
         _scope.set(this, scope);
 
-        var binding = new Binding();
-        this.bindingSyntax.container.add(binding);
+        var binding = new Binding(
+            this.bindingSyntax.service,
+            this.bindingSyntax.strategy,
+            this.scope
+        );
         
+        this.bindingSyntax.container.add(binding);
     }
 }
