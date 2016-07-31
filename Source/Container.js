@@ -4,6 +4,8 @@
  *--------------------------------------------------------------------------------------------*/
 import {BindingSyntax} from "./BindingSyntax";
 import {Module} from "./Module";
+import {BindingForServiceAlreadyExists} from "./BindingForServiceAlreadyExists";
+import {MissingBindingForService} from "./MissingBindingForService"; 
 
 const _bindings = new WeakMap();
 
@@ -18,7 +20,7 @@ export class Container
      * @param {Module[]} modules Any modules that will be loaded
      */
     constructor(modules=null) {
-        _bindings.set(this,[]);
+        _bindings.set(this, {});
     }
     
     /**
@@ -30,11 +32,22 @@ export class Container
     }
 
     /**
+     * Gets the binding for a specific service
+     * 
+     * @throws {MissingBindingForService} if there is no {Binding}
+     */
+    getBindingFor(service) {
+        if( !this.bindings.hasOwnProperty(service) ) MissingBindingForService.throw(service);
+        return this.bindings[service];
+    } 
+
+    /**
      * Add a binding to the container
      * @param {Binding} to add.
      */
     add(binding) {
-        this.bindings.push(binding);
+        if( this.bindings.hasOwnProperty(binding.service)) BindingForServiceAlreadyExists.throw(binding.service);
+        this.bindings[binding.service] = binding;
     }
     
     /**
