@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Einar Ingebrigtsen. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 import {Conventions} from "../../../Source/Conventions/Conventions";
 import * as Context from "./given/no_conventions";
 
