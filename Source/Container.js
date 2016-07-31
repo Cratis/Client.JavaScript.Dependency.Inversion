@@ -59,4 +59,14 @@ export class Container
         var bindingSyntax = new BindingSyntax(this, service);
         return bindingSyntax;
     }
+
+    /**
+     * Get instance of a specific service
+     * @param {service} service Service to get instance for
+     * @return {Object} Resolved instance of service
+     */
+    get(service) {
+        if( !this.bindings.hasOwnProperty(service) ) MissingBindingForService.throw(service);
+        return "";
+    }
 }
