@@ -6,14 +6,13 @@ import {Scope} from "./Scopes/Scope";
 import {SingletonScope} from "./Scopes/SingletonScope";
 import {Binding} from "./Binding";
 
+const _singletonScope = new SingletonScope();
 const _bindingSyntax = new WeakMap();
-const _scope = new WeakMap();
 
 /**
  * Represents the syntax configuration for a {Scope}
  */
-export class ScopeSyntax
-{
+export class ScopeSyntax {
 
     /**
      * Initializes a new instance of {ScopeSyntax}
@@ -37,31 +36,31 @@ export class ScopeSyntax
      * @property {Scope}
      */
     get scope() {
-        return _scope.get(this);
+        return this.bindingSyntax.binding.scope;
+    }
+
+    /**
+     * Sets the scope
+     * 
+     * @property {Scope}
+     */
+    set scope(scope) {
+        this.bindingSyntax.binding.scope = scope;
     }
 
     /**
      * Define the scope to be a singleton
      */
     asSingleton() {
-        let scope = new SingletonScope();
-        this.as(scope); 
+        this.as(_singletonScope);
     }
-    
+
     /**
      * Define a specific scope as lifecycle
      * 
      * @param {Scope} scope The scope representing the lifecycle
      */
     as(scope) {
-        _scope.set(this, scope);
-
-        var binding = new Binding(
-            this.bindingSyntax.service,
-            this.bindingSyntax.strategy,
-            this.scope
-        );
-        
-        this.bindingSyntax.container.add(binding);
+        this.scope = scope;
     }
 }

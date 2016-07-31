@@ -57,4 +57,13 @@ export class Binding
     get scope() {
         return _scope.get(this);
     }
+
+    /**
+     * Set the scope for the {Binding}
+     * 
+     * @property {Scope}
+     */
+    set scope(scope) {
+        _scope.set(this, scope);
+    }
 }

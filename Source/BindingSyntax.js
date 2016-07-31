@@ -7,14 +7,20 @@ import {ConstantActivationStrategy} from "./Strategies/ConstantActivationStrateg
 import {TypeActivationStrategy} from "./Strategies/TypeActivationStrategy";
 import {ComplexActivationStrategy} from "./Strategies/ComplexActivationStrategy";
 import {CallbackActivationStrategy} from "./Strategies/CallbackActivationStrategy";
+import {TransientScope} from "./Scopes/TransientScope";
+import {Binding} from "./Binding";
 
 const _container = new WeakMap();
 const _service = new WeakMap();
 const _strategy = new WeakMap();
 const _scopeSyntax = new WeakMap();
 
+const _transientScope = new TransientScope();
 
 const handleStrategyAndScope = function (strategy) {
+    var binding = new Binding(this.service, strategy, _transientScope);
+    this.container.add(binding);
+
     _strategy.set(this, strategy);
 
     var scopeSyntax = new ScopeSyntax();

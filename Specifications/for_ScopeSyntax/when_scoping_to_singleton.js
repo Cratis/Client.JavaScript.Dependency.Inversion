@@ -12,18 +12,11 @@ describe("when scoping to singleton", () => {
 
     beforeEach(() => {
         context = new Context.default();
-        context.bindingSyntax.container.add = (input) => {
-            binding = input;
-        }; 
 
         (becauseOf => {
             context.scopeSyntax.asSingleton();
         })();
     });
 
-    it("should set it to be a singleton scope", () => context.scopeSyntax.scope.should.be.instanceof(SingletonScope));
-    it("should add a binding to the container", () => binding.should.be.instanceof(Binding));
-    it("should pass the service to the binding", () => binding.service.should.equal(context.bindingSyntax.service));
-    it("should pass the strategy to the binding", () => binding.strategy.should.equal(context.bindingSyntax.strategy));
-    it("should pass the scope to the binding", () => binding.scope.should.equal(context.scopeSyntax.scope));
+    it("should set it to be the given scope", () => context.scopeSyntax.scope.should.be.instanceof(SingletonScope));
 });

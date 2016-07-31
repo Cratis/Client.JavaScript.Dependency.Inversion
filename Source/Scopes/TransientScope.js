@@ -2,15 +2,12 @@
  *  Copyright (c) Einar Ingebrigtsen. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-import {BindingSyntax} from "../../../Source/BindingSyntax";
+import {Scope} from "./Scope";
 
-export default class 
+/**
+ * Represents a {Scope} that makes a binding of a service only have a single instance in memory 
+ */
+export class TransientScope extends Scope
 {
-    constructor() {
-        this.service = "Some service";
-        this.container = {
-            add: sinon.stub()
-        }
-        this.bindingSyntax = new BindingSyntax(this.container, this.service); 
-    }
+    
 }

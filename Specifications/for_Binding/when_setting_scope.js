@@ -2,15 +2,13 @@
  *  Copyright (c) Einar Ingebrigtsen. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-import {BindingSyntax} from "../../../Source/BindingSyntax";
+import {Binding} from "../../Source/Binding";
 
-export default class 
-{
-    constructor() {
-        this.service = "Some service";
-        this.container = {
-            add: sinon.stub()
-        }
-        this.bindingSyntax = new BindingSyntax(this.container, this.service); 
-    }
-}
+describe("when setting scope", () => {
+    let binding = new Binding("service", "strategy", "scope");
+    let scope = "Other scope";
+
+    binding.scope = scope;
+
+    it("should set the new scope", () => binding.scope.should.equal(scope));
+});
