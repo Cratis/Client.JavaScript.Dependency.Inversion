@@ -10,7 +10,7 @@ export default class
 
         this.bindingSyntax = {
             container: {
-                add: sinon.stub(() => console.log("Hello"))
+                add: sinon.stub()
             },
             service: { "some": "service"},
             strategy: { "some": "strategy" }
