@@ -19,5 +19,5 @@ describe("when getting binding for unbound service", () => {
     });
 
     it("should throw missing binding for service", () => exception.should.be.instanceof(MissingBindingForService));
-    it("should pass the service to the exception", () => false.should.be.true);
+    it("should pass the service to the exception", () => exception.service.should.equal(service));
 });

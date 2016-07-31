@@ -26,5 +26,4 @@ describe("when getting binding for bound service", () => {
     });
 
     it("should get the binding for the service", () => result.should.equal(binding));
-    it("should pass the service to the exception", () => false.should.be.true);
 });

@@ -11,7 +11,6 @@ class SomeClass
     }
 }
 
-
 describe("when getting for constructor without metadata", () => {
     let context = null;
     let constructorDependencies = null;

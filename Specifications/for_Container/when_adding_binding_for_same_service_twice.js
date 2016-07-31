@@ -23,5 +23,5 @@ describe("when adding binding for same service twice", () => {
     }
 
     it("should throw binding for service already exists exception", () => exception.should.be.instanceof(BindingForServiceAlreadyExists));
-    it("should pass the service as parameter to the exception", () => false.should.be.true);
+    it("should pass the service as parameter to the exception", () => exception.service.should.equal(binding.service));
 });

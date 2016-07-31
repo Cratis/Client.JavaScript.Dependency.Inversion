@@ -6,5 +6,8 @@ import {Exception} from "cratis-javascript-core";
 
 export class MissingBindingForService extends Exception
 {
-
+    constructor(service) {
+        super(`Missing binding for service ´${service}´`);
+        this.service = service;
+    }
 }    
