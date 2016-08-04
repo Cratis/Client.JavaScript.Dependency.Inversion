@@ -49,7 +49,7 @@ describe("when activating with three dependencies", () => {
     let strategy = new ComplexActivationStrategy(container);
     let instance = null;
 
-    beforeEach(() => {
+    beforeEach(done => {
         _first = null;
         _second = null;
         _third = null;
@@ -58,7 +58,7 @@ describe("when activating with three dependencies", () => {
         instance = null;
 
         (becauseOf => {
-            strategy.activate(activationContext, binding).then((i) => instance = i);
+            strategy.activate(activationContext, binding).then((i) => {instance = i; done();});
         })();
     });
 
